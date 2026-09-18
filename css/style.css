@@ -289,8 +289,29 @@ h1,h2,h3,.oswald{font-family:"Oswald","Noto Sans KR",sans-serif;letter-spacing:.
   .profile-card{max-width:380px;margin:0 auto}
   .goal-hero{grid-template-columns:1fr}
   .photo-grid{grid-template-columns:repeat(3,1fr)}
-}
+}.gb-form{display:flex;gap:10px;flex-wrap:wrap}
+.gb-form input{background:var(--navy);border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--ink);font-family:inherit;font-size:.92rem}
+.gb-form input:focus{outline:2px solid var(--blue);border-color:transparent}
+.gb-form input#gbName{width:170px}
+.gb-form input#gbMessage{flex:1;min-width:240px}
+.gb-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.gb-item{background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.gb-item .gb-name{font-family:"Oswald";color:var(--gold);font-size:.95rem}
+.gb-item .gb-date{font-size:.72rem;color:var(--muted)}
+.gb-item p{font-size:.9rem;margin-top:6px;line-height:1.55;word-break:break-word}
+.lb-list{list-style:none;margin:10px 0 12px;display:flex;flex-direction:column;gap:6px}
+.lb-list li{display:flex;align-items:center;gap:10px;background:rgba(10,23,52,.55);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:.85rem}
+.lb-list .rank{font-family:"Oswald";color:var(--gold);width:22px}
+.lb-list .nm{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb-list .sc{font-family:"Oswald";color:var(--ink)}
+.lb-row{display:flex;gap:8px}
+.lb-row input{flex:1;background:var(--navy);border:1px solid var(--line);border-radius:8px;padding:9px 11px;color:var(--ink);font-family:inherit;font-size:.84rem;min-width:0}
+.lb-row input:focus{outline:2px solid var(--blue);border-color:transparent}
+
 @media(max-width:720px){
+  .gb-grid{grid-template-columns:1fr}
+  .gb-form input#gbName{width:100%}
+  .gb-form input#gbMessage{min-width:100%}
   .nav-links{position:absolute;top:70px;left:0;right:0;background:rgba(8,18,42,.98);flex-direction:column;align-items:stretch;padding:12px;border-bottom:1px solid var(--line);display:none}
   .nav-links.open{display:flex}
   .nav-toggle{display:block}

@@ -118,6 +118,25 @@
   </div>
 </section>
 
+<section class="section section-alt" id="guestbook">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker">Fan Wall</span>
+      <h2>이글 응원 방명록</h2>
+      <p>자하에게 남기고 싶은 한마디를 남겨보세요. 서버에 저장되어 모든 방문자에게 보여집니다.</p>
+    </div>
+    <div class="card reveal" style="padding:24px">
+      <p id="gbStatus" class="kit-note" style="margin-bottom:14px">방명록을 불러오는 중...</p>
+      <form id="gbForm" class="gb-form">
+        <input id="gbName" placeholder="닉네임 (선택)" maxlength="20">
+        <input id="gbMessage" placeholder="자하에게 응원 한마디!" maxlength="300" required>
+        <button class="btn btn-red" type="submit">남기기</button>
+      </form>
+    </div>
+    <div id="gbList" class="gb-grid"></div>
+  </div>
+</section>
+
 <script src="js/data.js"></script>
 <script src="js/main.js"></script>
 <script>

@@ -43,6 +43,15 @@
           <span class="oswald" style="letter-spacing:.2em;font-size:.72rem;color:var(--gold)">NOW PLAYING</span>
           <p id="scStatus" style="font-size:.88rem;margin-top:6px;color:var(--ink)">자유 연습 모드 · 마음껏 슛을 날려보세요</p>
         </div>
+        <div class="card" style="padding:18px 20px;margin-bottom:18px">
+          <span class="oswald" style="letter-spacing:.2em;font-size:.72rem;color:var(--gold)">LEADERBOARD</span>
+          <p style="font-size:.78rem;color:var(--muted);margin:6px 0 4px">최고 연속 득점 랭킹 — 전체 팬 참여</p>
+          <ol class="lb-list" id="lbList"></ol>
+          <div class="lb-row">
+            <input id="lbName" placeholder="닉네임" maxlength="20">
+            <button class="btn btn-blue" id="btnSubmitScore" style="padding:8px 14px;font-size:.8rem;white-space:nowrap">기록 등록</button>
+          </div>
+        </div>
         <div class="scenarios" id="scenarioList"></div>
         <div class="game-help card">
           <b>게임 방법</b>

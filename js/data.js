@@ -135,3 +135,7 @@ const SCENARIOS = [
   { id: "s5", title: "PL 통산 50호골", meta: "2021.10.30 · PL 원정 vs 맨시티", desc: "에티하드의 골키퍼는 리그 최고 수준. 한 방을 노려라.", target: 1, attempts: 3, skill: 0.78 },
   { id: "s6", title: "마지막 홈경기의 승리", meta: "2023.05.13 · PL vs 본머스", desc: "18년의 마지막, 팬들에게 2골의 선물을 남겨라.", target: 2, attempts: 5, skill: 0.68 }
 ];
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { ZAHA, CAREER, INTERNATIONAL, HONORS, FACTS, SEASONS, GOALS, PHOTO_CAPTIONS, PRODUCTS, SCENARIOS };
+}

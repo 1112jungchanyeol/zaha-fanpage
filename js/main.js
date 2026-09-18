@@ -53,6 +53,24 @@ function calcAge(birth) {
   if (m < 0 || (m === 0 && t.getDate() < b.getDate())) a--;
   return a;
 }
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+const API_BASE = location.hostname.indexOf("onrender.com") !== -1 ? "" : "__RENDER_URL__";
+async function apiGet(path) {
+  const r = await fetch(API_BASE + path);
+  if (!r.ok) throw new Error("api error");
+  return r.json();
+}
+async function apiPost(path, body) {
+  const r = await fetch(API_BASE + path, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body)
+  });
+  if (!r.ok) throw new Error("api error");
+  return r.json();
+}
 
 const NAV = [
   ["home", "index.html", "홈"],
@@ -248,6 +266,42 @@ function renderPhotos() {
   lb.addEventListener("click", e => { if (e.target === lb) lb.classList.remove("open"); });
 }
 
+function renderGuestbook() {
+  const form = document.getElementById("gbForm");
+  if (!form) return;
+  const list = document.getElementById("gbList");
+  const status = document.getElementById("gbStatus");
+  async function refresh() {
+    try {
+      const entries = await apiGet("/api/guestbook");
+      status.textContent = `지금까지 팬들이 남긴 응원 ${entries.length}개`;
+      list.innerHTML = entries.length
+        ? entries.map(e => `<div class="gb-item reveal on"><div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline"><span class="gb-name">${esc(e.name)}</span><span class="gb-date">${fmtDate(String(e.date).slice(0, 10))}</span></div><p>${esc(e.message)}</p></div>`).join("")
+        : `<div class="kit-note">아직 응원이 없습니다. 첫 번째 한마디를 남겨보세요!</div>`;
+    } catch (err) {
+      status.textContent = "방명록 서버에 연결할 수 없습니다. 잠시 후 다시 시도해주세요.";
+      list.innerHTML = "";
+    }
+  }
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const message = document.getElementById("gbMessage").value;
+    if (!message.trim()) return;
+    try {
+      await apiPost("/api/guestbook", {
+        name: document.getElementById("gbName").value,
+        message: message
+      });
+      document.getElementById("gbMessage").value = "";
+      status.textContent = "응원이 등록되었습니다!";
+      refresh();
+    } catch (err) {
+      status.textContent = "전송에 실패했습니다. 잠시 후 다시 시도해주세요.";
+    }
+  });
+  refresh();
+}
+
 function animateCounters() {
   document.querySelectorAll(".count").forEach(el => {
     const target = +el.dataset.target || 0;
@@ -277,6 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderSeasons();
   renderProfile();
   renderPhotos();
+  renderGuestbook();
   animateCounters();
   setupReveal();
 });

@@ -673,6 +673,39 @@
       sWhistle();
     });
   }
+  async function lbRefresh() {
+    const ol = document.getElementById("lbList");
+    if (!ol) return;
+    try {
+      const scores = await apiGet("/api/scores");
+      ol.innerHTML = scores.length
+        ? scores.map((s, i) => `<li><span class="rank">${i + 1}</span><span class="nm">${esc(s.name)}</span><span class="sc">${s.streak}연속</span></li>`).join("")
+        : `<li style="justify-content:center;color:var(--muted)">아직 등록된 기록이 없습니다</li>`;
+    } catch (e) {
+      ol.innerHTML = `<li style="justify-content:center;color:var(--muted)">리더보드 서버에 연결할 수 없습니다</li>`;
+    }
+  }
+  const lbBtn = document.getElementById("btnSubmitScore");
+  if (lbBtn) {
+    lbBtn.addEventListener("click", async () => {
+      if (S.best < 1) {
+        showOutcome("등록할 기록이 없습니다. 먼저 골을 넣어보세요!", "#BFD2EE", 1600);
+        return;
+      }
+      const name = (document.getElementById("lbName").value || "").trim();
+      lbBtn.disabled = true;
+      try {
+        const r = await apiPost("/api/scores", { name: name, streak: S.best });
+        showOutcome(`랭킹 ${r.rank}위로 등록 완료!`, "#5DD97C", 1900);
+        lbRefresh();
+      } catch (e) {
+        showOutcome("등록 실패 — 서버 상태를 확인해주세요", "#FF7D92", 1600);
+      }
+      lbBtn.disabled = false;
+    });
+  }
+  lbRefresh();
+
   renderScenarioList();
   updateHUD();
 })();
