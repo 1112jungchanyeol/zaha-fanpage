@@ -56,7 +56,7 @@ function calcAge(birth) {
 function esc(s) {
   return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
-const API_BASE = location.hostname.indexOf("onrender.com") !== -1 ? "" : "__RENDER_URL__";
+const API_BASE = location.hostname.indexOf("onrender.com") !== -1 ? "" : "https://zaha-fanpage.onrender.com";
 async function apiGet(path) {
   const r = await fetch(API_BASE + path);
   if (!r.ok) throw new Error("api error");
