@@ -1,0 +1,303 @@
+:root{
+  --red:#C8102E;
+  --red-dark:#8F0A20;
+  --blue:#1C4FA1;
+  --blue-deep:#123772;
+  --navy:#0A1734;
+  --navy-2:#0F2247;
+  --navy-3:#152B57;
+  --ink:#EAF0FA;
+  --muted:#93A5C4;
+  --gold:#E8C15A;
+  --line:rgba(147,165,196,.18);
+  --radius:14px;
+  --shadow:0 10px 30px rgba(2,8,23,.55);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans KR","Malgun Gothic",sans-serif;
+  background:var(--navy);
+  color:var(--ink);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+::selection{background:var(--red);color:#fff}
+
+h1,h2,h3,.oswald{font-family:"Oswald","Noto Sans KR",sans-serif;letter-spacing:.02em}
+.container{width:min(1180px,92%);margin:0 auto}
+.section{padding:72px 0}
+.section-alt{background:var(--navy-2)}
+.sash-divider{height:8px;background:linear-gradient(90deg,var(--red) 0 33.3%,var(--navy) 33.3% 66.6%,var(--blue) 66.6% 100%)}
+
+.section-head{margin-bottom:36px}
+.section-head .kicker{display:inline-flex;align-items:center;gap:10px;font-family:"Oswald";font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.section-head .kicker::before{content:"";width:26px;height:3px;background:var(--red)}
+.section-head h2{font-size:clamp(1.6rem,3.4vw,2.4rem);text-transform:uppercase;line-height:1.2}
+.section-head p{color:var(--muted);margin-top:10px;max-width:640px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:999px;font-weight:700;font-size:.95rem;transition:transform .18s,box-shadow .18s,background .18s;border:2px solid transparent}
+.btn:hover{transform:translateY(-2px)}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 8px 22px rgba(200,16,46,.4)}
+.btn-blue{background:var(--blue);color:#fff;box-shadow:0 8px 22px rgba(28,79,161,.4)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn-gold{background:var(--gold);color:#231a04}
+
+.chip{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:999px;border:1px solid var(--line);font-size:.85rem;color:var(--muted);background:rgba(15,34,71,.6);transition:.18s}
+.chip:hover{color:var(--ink);border-color:var(--gold)}
+.chip.active{background:var(--red);border-color:var(--red);color:#fff;font-weight:700}
+
+.card{background:linear-gradient(160deg,var(--navy-2),var(--navy-3));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+.badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:.72rem;font-weight:800;letter-spacing:.06em}
+.badge-red{background:rgba(200,16,46,.18);color:#ff7d92;border:1px solid rgba(200,16,46,.5)}
+.badge-blue{background:rgba(28,79,161,.22);color:#8db4f5;border:1px solid rgba(28,79,161,.6)}
+.badge-gold{background:rgba(232,193,90,.14);color:var(--gold);border:1px solid rgba(232,193,90,.45)}
+
+.site-header{position:sticky;top:0;z-index:100;background:rgba(10,23,52,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:22px;height:70px}
+.nav .brand{display:flex;align-items:center;gap:12px;margin-right:auto}
+.nav .brand svg{height:46px;width:auto}
+.nav .brand .wordmark{font-family:"Oswald";font-weight:700;line-height:1.05}
+.nav .brand .wordmark b{display:block;font-size:1.05rem;letter-spacing:.12em}
+.nav .brand .wordmark span{display:block;font-size:.62rem;letter-spacing:.34em;color:var(--gold)}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{padding:9px 13px;border-radius:8px;font-size:.88rem;font-weight:500;color:var(--muted);transition:.18s;white-space:nowrap}
+.nav-links a:hover{color:var(--ink);background:rgba(28,79,161,.25)}
+.nav-links a.active{color:#fff;background:var(--red)}
+.nav-toggle{display:none;font-size:1.6rem;color:var(--ink)}
+
+.site-footer{background:#060F24;border-top:1px solid var(--line);padding:40px 0 30px;margin-top:60px}
+.site-footer .row{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.site-footer .fbrand{display:flex;align-items:center;gap:12px}
+.site-footer .fbrand svg{height:44px}
+.site-footer p{font-size:.78rem;color:var(--muted);max-width:640px;margin-top:14px}
+
+.hero{position:relative;overflow:hidden;background:
+  linear-gradient(115deg,rgba(143,10,32,.85),rgba(143,10,32,.85) 38%,rgba(18,55,114,.9) 62%,rgba(18,55,114,.9)),
+  repeating-linear-gradient(-45deg,#0A1734 0 26px,#0D1C3E 26px 52px)}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 0%,transparent,rgba(6,12,30,.7));pointer-events:none}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding:88px 0 66px}
+.hero .logo-big{width:min(340px,70%);margin:0 auto;filter:drop-shadow(0 18px 34px rgba(0,0,0,.5))}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem);line-height:.98;text-transform:uppercase}
+.hero h1 .red{color:#ff8fa1}
+.hero h1 .blue{color:#9dc0ff}
+.hero .sub{margin:18px 0 8px;font-size:1.12rem;font-weight:500}
+.hero .tagline{color:rgba(234,240,250,.78);max-width:520px;font-size:.95rem}
+.hero .ctas{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.hero .hero-num{font-family:"Oswald";font-weight:700;font-size:6.4rem;line-height:1;color:rgba(255,255,255,.14);position:absolute;right:4%;top:6%;pointer-events:none;user-select:none}
+
+.stat-strip{background:#060F24;border-block:1px solid var(--line)}
+.stat-strip .inner{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
+.stat-strip .stat{padding:28px 12px;border-inline:1px solid var(--line)}
+.stat-strip .stat:first-child{border-left:none}
+.stat-strip .num{font-family:"Oswald";font-size:2.5rem;font-weight:700;color:var(--gold);line-height:1.1}
+.stat-strip .lbl{font-size:.82rem;color:var(--muted);letter-spacing:.14em}
+
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.feature{position:relative;overflow:hidden;padding:30px 26px;display:flex;flex-direction:column;gap:12px;transition:transform .22s,border-color .22s}
+.feature:hover{transform:translateY(-6px);border-color:rgba(232,193,90,.5)}
+.feature .icon{font-size:2rem;line-height:1}
+.feature h3{font-size:1.18rem;text-transform:uppercase}
+.feature p{color:var(--muted);font-size:.9rem;flex:1}
+.feature .go{color:var(--gold);font-family:"Oswald";letter-spacing:.2em;font-size:.8rem;text-transform:uppercase}
+.feature::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--red)}
+.feature:nth-child(2)::before,.feature:nth-child(4)::before{background:var(--blue)}
+.feature:nth-child(3)::before,.feature:nth-child(5)::before{background:var(--gold)}
+.feature:nth-child(6)::before{background:linear-gradient(90deg,var(--red),var(--blue))}
+
+.page-hero{background:linear-gradient(120deg,var(--red-dark),var(--blue-deep));padding:58px 0}
+.page-hero .crumb{font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.65);font-family:"Oswald"}
+.page-hero h1{font-size:clamp(2rem,4.6vw,3rem);text-transform:uppercase;margin-top:8px}
+.page-hero p{margin-top:10px;max-width:680px;color:rgba(234,240,250,.85)}
+
+.profile-hero{display:grid;grid-template-columns:340px 1fr;gap:44px;align-items:center}
+.profile-card{padding:34px 30px;text-align:center;position:relative;overflow:hidden}
+.profile-card::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-45deg,rgba(200,16,46,.16) 0 18px,transparent 18px 36px,rgba(28,79,161,.16) 36px 54px,transparent 54px 72px)}
+.profile-card .jersey{position:relative;z-index:2;width:190px;margin:0 auto}
+.profile-card .pname{position:relative;z-index:2;font-family:"Oswald";font-size:1.6rem;margin-top:14px;text-transform:uppercase}
+.profile-card .prole{position:relative;z-index:2;color:var(--gold);font-size:.85rem;letter-spacing:.2em;text-transform:uppercase}
+.info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+.info-card{background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:18px 16px;text-align:center}
+.info-card .k{font-size:.74rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+.info-card .v{font-family:"Oswald";font-size:1.35rem;font-weight:600;margin-top:6px}
+.info-card .v small{font-size:.8rem;color:var(--muted)}
+
+.palace-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:30px 0}
+.palace-stats .box{background:linear-gradient(160deg,var(--red-dark),var(--blue-deep));border-radius:var(--radius);padding:26px 18px;text-align:center}
+.palace-stats .box .n{font-family:"Oswald";font-size:2.6rem;font-weight:700;line-height:1}
+.palace-stats .box .l{font-size:.8rem;letter-spacing:.12em;color:rgba(255,255,255,.8);margin-top:6px}
+
+.timeline{position:relative;margin-top:26px;padding-left:26px}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:3px;background:linear-gradient(var(--red),var(--blue))}
+.tl-item{position:relative;padding:0 0 26px 22px}
+.tl-item::before{content:"";position:absolute;left:-26px;top:6px;width:15px;height:15px;border-radius:50%;background:var(--navy);border:4px solid var(--red)}
+.tl-item.blue::before{border-color:var(--blue)}
+.tl-item.gold::before{border-color:var(--gold)}
+.tl-item .when{font-family:"Oswald";color:var(--gold);font-size:.9rem;letter-spacing:.1em}
+.tl-item h3{font-size:1.08rem;margin:2px 0}
+.tl-item p{color:var(--muted);font-size:.88rem}
+.tl-item .tl-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+
+.honors-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.honors-list li{background:var(--navy-2);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:10px;padding:14px 18px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.honors-list .yr{font-family:"Oswald";color:var(--gold);white-space:nowrap}
+
+.fact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.fact{padding:20px;border-radius:12px;background:var(--navy-2);border:1px solid var(--line)}
+.fact h4{color:var(--gold);font-size:.95rem;margin-bottom:6px}
+.fact p{font-size:.88rem;color:var(--muted)}
+
+.season-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:34px}
+.season-summary .sbox{background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center}
+.season-summary .n{font-family:"Oswald";font-size:2rem;color:var(--gold);font-weight:700}
+.season-summary .l{font-size:.78rem;color:var(--muted);letter-spacing:.1em}
+
+.kit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.kit-card{overflow:hidden;display:flex;flex-direction:column}
+.kit-card .kit-visual{background:radial-gradient(120% 90% at 50% 0%,var(--navy-3),var(--navy-2));padding:26px 20px 10px;display:flex;justify-content:center}
+.kit-card .kit-visual svg{width:170px;height:auto;filter:drop-shadow(0 12px 20px rgba(0,0,0,.45))}
+.kit-card .kit-body{padding:20px 22px 24px;border-top:1px solid var(--line)}
+.kit-card h3{font-size:1.3rem;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.kit-card h3 .comp{font-size:.68rem;color:var(--gold);letter-spacing:.14em;border:1px solid rgba(232,193,90,.4);padding:3px 8px;border-radius:6px}
+.kit-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:16px 0 12px;text-align:center}
+.kit-stats .ks{background:rgba(10,23,52,.55);border:1px solid var(--line);border-radius:10px;padding:10px 6px}
+.kit-stats .ks b{display:block;font-family:"Oswald";font-size:1.35rem;color:#fff}
+.kit-stats .ks span{font-size:.7rem;color:var(--muted);letter-spacing:.08em}
+.kit-note{font-size:.82rem;color:var(--muted)}
+.kit-note b{color:var(--ink)}
+
+.goal-hero{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+.goal-count{text-align:center;padding:34px 20px}
+.goal-count .big{font-family:"Oswald";font-size:6.2rem;font-weight:700;line-height:1;background:linear-gradient(120deg,#ff8fa1,var(--gold),#9dc0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.goal-count .lbl{letter-spacing:.3em;text-transform:uppercase;color:var(--muted);font-size:.85rem}
+.goal-filters{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 40px}
+.season-block{margin-bottom:56px}
+.season-block .sb-head{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:16px 20px;background:linear-gradient(90deg,var(--red-dark),transparent 65%);border-left:5px solid var(--red);border-radius:10px;margin-bottom:20px}
+.season-block.alt .sb-head{background:linear-gradient(90deg,var(--blue-deep),transparent 65%);border-left-color:var(--blue)}
+.season-block .sb-head h3{font-size:1.4rem;text-transform:uppercase}
+.season-block .sb-head .totals{color:var(--muted);font-size:.88rem}
+.season-block .sb-head .yt{margin-left:auto;font-size:.8rem;color:var(--gold);border:1px solid rgba(232,193,90,.4);padding:6px 12px;border-radius:999px;transition:.18s}
+.season-block .sb-head .yt:hover{background:var(--gold);color:#231a04}
+.goal-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.goal-card{padding:22px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
+.goal-card:hover{transform:translateY(-4px);border-color:rgba(232,193,90,.5)}
+.goal-card .gc-top{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.goal-card .gc-date{font-family:"Oswald";color:var(--muted);font-size:.9rem;letter-spacing:.06em}
+.goal-card h4{font-size:1.14rem}
+.goal-card p{color:var(--muted);font-size:.88rem;flex:1}
+.goal-card .gc-foot{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.goal-card .scoreline{font-family:"Oswald";font-size:.95rem;color:var(--gold)}
+.goal-card .watch{display:inline-flex;align-items:center;gap:7px;background:var(--red);color:#fff;padding:8px 16px;border-radius:999px;font-size:.84rem;font-weight:700;transition:.18s}
+.goal-card .watch:hover{background:#e33450;transform:translateY(-2px)}
+.goal-card .minute{position:absolute;top:14px;right:16px;font-family:"Oswald";font-size:1.9rem;color:rgba(147,165,196,.22);font-weight:700}
+
+.photos-info{display:flex;gap:16px;align-items:center;background:rgba(28,79,161,.14);border:1px solid rgba(28,79,161,.45);border-radius:12px;padding:18px 20px;margin-bottom:28px}
+.photos-info .ic{font-family:"Oswald";font-size:.82rem;letter-spacing:.3em;color:var(--gold);white-space:nowrap}
+.photos-info p{font-size:.88rem;color:var(--muted)}
+.photos-info code{background:rgba(10,23,52,.8);padding:2px 8px;border-radius:6px;color:var(--gold);font-size:.82rem}
+.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.ph-slot{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;background:linear-gradient(160deg,var(--navy-3),var(--navy-2));cursor:pointer;transition:transform .2s,border-color .2s}
+.ph-slot:hover{transform:translateY(-4px);border-color:var(--gold)}
+.ph-slot img{width:100%;height:100%;object-fit:cover}
+.ph-slot .ph-empty{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;align-items:center;gap:8px;text-align:center;padding:14px;background:repeating-linear-gradient(-45deg,rgba(200,16,46,.08) 0 16px,transparent 16px 32px,rgba(28,79,161,.08) 32px 64px,transparent 64px 80px)}
+.ph-slot.noimg .ph-empty{display:flex}
+.ph-slot .ph-empty .no{font-family:"Oswald";font-size:2rem;color:rgba(232,193,90,.6)}
+.ph-slot .ph-empty .cap{font-size:.78rem;color:var(--muted)}
+.ph-slot .ph-cap{display:none;position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;background:linear-gradient(transparent,rgba(6,15,36,.92));font-size:.76rem;color:#dbe6f7}
+.ph-slot:not(.noimg) .ph-cap{display:block}
+.lightbox{position:fixed;inset:0;background:rgba(4,9,22,.94);z-index:300;display:none;align-items:center;justify-content:center;flex-direction:column;gap:16px;padding:30px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(1000px,92vw);max-height:78vh;border-radius:12px;border:1px solid var(--line)}
+.lightbox .lb-cap{color:var(--muted)}
+.lightbox .lb-close{position:absolute;top:18px;right:26px;font-size:2rem;color:#fff}
+
+.shop-layout{display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:start}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.product{overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.product:hover{transform:translateY(-5px);border-color:rgba(232,193,90,.55)}
+.product .p-art{background:radial-gradient(110% 90% at 50% 0%,var(--navy-3),var(--navy-2));display:flex;align-items:center;justify-content:center;padding:22px;height:190px}
+.product .p-art svg{max-height:150px;width:auto;filter:drop-shadow(0 8px 16px rgba(0,0,0,.4))}
+.product .p-body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1;border-top:1px solid var(--line)}
+.product h3{font-size:1.02rem}
+.product .p-desc{font-size:.82rem;color:var(--muted);flex:1}
+.product .p-row{display:flex;justify-content:space-between;align-items:center}
+.product .price{font-family:"Oswald";font-size:1.2rem;color:var(--gold)}
+.product .add{background:var(--blue);padding:9px 16px;border-radius:999px;color:#fff;font-size:.84rem;font-weight:700;transition:.18s}
+.product .add:hover{background:var(--red)}
+.cart{position:sticky;top:88px;padding:24px}
+.cart h3{display:flex;justify-content:space-between;align-items:center;font-size:1.2rem;text-transform:uppercase}
+.cart .cart-clear{font-size:.76rem;color:var(--muted);text-decoration:underline}
+.cart-items{margin:16px 0;display:flex;flex-direction:column;gap:10px;max-height:300px;overflow:auto}
+.cart-empty{color:var(--muted);font-size:.86rem;text-align:center;padding:20px 0}
+.cart-item{display:flex;gap:10px;align-items:center;background:rgba(10,23,52,.6);border:1px solid var(--line);border-radius:10px;padding:10px}
+.cart-item .ci-name{font-size:.84rem;flex:1}
+.cart-item .qty{display:flex;align-items:center;gap:8px}
+.cart-item .qty button{width:24px;height:24px;border-radius:6px;background:var(--navy-3);border:1px solid var(--line);font-weight:700;color:var(--ink)}
+.cart-item .qty button:hover{background:var(--red)}
+.cart-item .ci-price{font-family:"Oswald";color:var(--gold);font-size:.9rem;min-width:64px;text-align:right}
+.cart-total{border-top:1px dashed var(--line);padding-top:14px;display:flex;justify-content:space-between;font-family:"Oswald";font-size:1.15rem}
+.checkout{width:100%;margin-top:14px}
+.shop-note{font-size:.75rem;color:var(--muted);margin-top:12px;text-align:center}
+
+.modal{position:fixed;inset:0;background:rgba(4,9,22,.8);z-index:300;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-box{width:min(480px,100%);background:var(--navy-2);border:1px solid var(--line);border-radius:16px;padding:30px;position:relative}
+.modal-box h3{font-size:1.3rem;text-transform:uppercase;margin-bottom:8px}
+.modal-box .m-close{position:absolute;top:14px;right:18px;font-size:1.5rem;color:var(--muted)}
+.modal-box p{font-size:.86rem;color:var(--muted);margin-bottom:16px}
+.modal-box label{display:block;font-size:.78rem;color:var(--muted);margin:12px 0 6px}
+.modal-box input,.modal-box select{width:100%;background:var(--navy);border:1px solid var(--line);border-radius:8px;padding:11px 13px;color:var(--ink);font-family:inherit;font-size:.9rem}
+.modal-box input:focus,.modal-box select:focus{outline:2px solid var(--blue)}
+
+.game-layout{display:grid;grid-template-columns:1fr 320px;gap:22px;align-items:start}
+.game-stage{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#06101F;box-shadow:var(--shadow)}
+.game-stage canvas{display:block;width:100%;height:auto;touch-action:none;cursor:crosshair}
+.game-hud{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--navy-2);border-top:1px solid var(--line)}
+.hud-chip{font-family:"Oswald";font-size:.95rem;letter-spacing:.06em;color:var(--muted)}
+.hud-chip b{color:var(--gold);font-size:1.25rem}
+.hud-btns{display:flex;gap:8px}
+.hud-btns .btn{padding:8px 16px;font-size:.8rem}
+.game-side .scenarios{display:flex;flex-direction:column;gap:12px}
+.scenario{padding:16px 18px;text-align:left;border:1px solid var(--line);border-radius:12px;background:var(--navy-2);transition:.18s;position:relative}
+.scenario:hover{border-color:var(--gold);transform:translateX(3px)}
+.scenario.active{border-color:var(--red);background:linear-gradient(120deg,rgba(200,16,46,.18),var(--navy-2))}
+.scenario .sc-title{font-family:"Oswald";font-size:1rem;display:flex;justify-content:space-between;gap:8px}
+.scenario .sc-title .done{color:#5dd97c}
+.scenario .sc-meta{font-size:.72rem;color:var(--gold);letter-spacing:.08em;margin-top:2px}
+.scenario p{font-size:.78rem;color:var(--muted);margin-top:6px}
+.game-help{margin-top:18px;padding:18px;font-size:.82rem;color:var(--muted)}
+.game-help b{color:var(--ink)}
+.game-help li{margin-left:16px;margin-top:6px}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:none}
+
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero .ctas{justify-content:center}
+  .hero .logo-big{width:220px}
+  .feature-grid,.kit-grid,.product-grid{grid-template-columns:repeat(2,1fr)}
+  .shop-layout{grid-template-columns:1fr}
+  .cart{position:static}
+  .game-layout{grid-template-columns:1fr}
+  .profile-hero{grid-template-columns:1fr}
+  .profile-card{max-width:380px;margin:0 auto}
+  .goal-hero{grid-template-columns:1fr}
+  .photo-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:720px){
+  .nav-links{position:absolute;top:70px;left:0;right:0;background:rgba(8,18,42,.98);flex-direction:column;align-items:stretch;padding:12px;border-bottom:1px solid var(--line);display:none}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:block}
+  .info-grid,.palace-stats,.season-summary,.fact-grid,.honors-list{grid-template-columns:1fr 1fr}
+  .stat-strip .inner{grid-template-columns:1fr 1fr}
+  .stat-strip .stat:nth-child(odd){border-left:none}
+  .feature-grid,.kit-grid,.product-grid,.goal-cards{grid-template-columns:1fr}
+  .photo-grid{grid-template-columns:repeat(2,1fr)}
+  .kit-stats{grid-template-columns:1fr 1fr 1fr}
+}

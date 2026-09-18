@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>득점 게임 | WILFRIED ZAHA FAN PAGE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="game">
+
+<section class="page-hero">
+  <div class="container">
+    <span class="crumb">Goal Simulator</span>
+    <h1>자하의 발로 직접 넣어라</h1>
+    <p>자하의 시점이 되어 팰리스에서 넣었던 골을 재현하는 게임. 마우스(또는 손가락)로 조준하고, 꾹 눌러 파워를 모으고, 놓으면 슛!</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="game-layout">
+      <div class="game-stage">
+        <canvas id="gameCanvas" width="900" height="600" aria-label="자하 득점 게임"></canvas>
+        <div class="game-hud">
+          <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+            <span class="hud-chip">득점 <b id="hudScore">0</b></span>
+            <span class="hud-chip">슈팅 <b id="hudAtt">0</b></span>
+            <span class="hud-chip">성공률 <b id="hudAcc">-</b></span>
+            <span class="hud-chip">연속 <b id="hudStreak">0</b></span>
+            <span class="hud-chip">최고연속 <b id="hudBest">0</b></span>
+          </div>
+          <div class="hud-btns">
+            <button class="btn btn-ghost" id="btnMute">소리 ON</button>
+            <button class="btn btn-ghost" id="btnReset">기록 초기화</button>
+          </div>
+        </div>
+      </div>
+      <div class="game-side">
+        <div class="card" style="padding:18px 20px;margin-bottom:18px">
+          <span class="oswald" style="letter-spacing:.2em;font-size:.72rem;color:var(--gold)">NOW PLAYING</span>
+          <p id="scStatus" style="font-size:.88rem;margin-top:6px;color:var(--ink)">자유 연습 모드 · 마음껏 슛을 날려보세요</p>
+        </div>
+        <div class="scenarios" id="scenarioList"></div>
+        <div class="game-help card">
+          <b>게임 방법</b>
+          <ul>
+            <li><b>조준</b> — 마우스를 움직여 골문의 원하는 지점을 겨냥하세요.</li>
+            <li><b>파워</b> — 마우스를 꾹 누르고 있으면 파워가 차오릅니다. 100에서 다시 내려가니 타이밍이 중요합니다.</li>
+            <li><b>커브</b> — 누른 채 손목을 옆으로 저으면 자하 특유의 감아차기가 걸립니다.</li>
+            <li><b>주의</b> — 파워가 세록 정확도는 떨어지고, 골키퍼도 강해진 시나리오에서는 더 잘 읽어냅니다.</li>
+          </ul>
+          <p style="margin-top:10px">시나리오는 자하가 팰리스에서 실제로 넣었던 골의 순간을 재현한 것입니다. 전부 클리어하면 숨겨진 엔딩이 기다립니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>굿즈샵 | WILFRIED ZAHA FAN PAGE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="shop">
+
+<section class="page-hero">
+  <div class="container">
+    <span class="crumb">Fan Shop</span>
+    <h1>자하 굿즈샵</h1>
+    <p>레플리카 유니폼부터 스카프, 포스터, 인형까지. 팬 메이드 굿즈로 자하를 일상에 곁들여보세요.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" id="shop-app">
+    <div class="shop-layout">
+      <div class="product-grid" id="productGrid"></div>
+      <aside class="cart card">
+        <h3>장바구니 <button class="cart-clear" id="cartClear">비우기</button></h3>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-total"><span>TOTAL</span><span id="cartTotal">₩0</span></div>
+        <button class="btn btn-red checkout" id="btnCheckout">주문하기</button>
+        <p class="shop-note">본 쇼핑몰은 팬 페이지 데모로 실제 결제·배송이 이루어지지 않습니다.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div class="modal" id="checkoutModal">
+  <div class="modal-box">
+    <button class="m-close">×</button>
+    <h3>주문서 작성</h3>
+    <p>데모 주문서입니다. 입력한 정보는 어디에도 전송되지 않습니다.</p>
+    <form id="checkoutForm">
+      <label for="coName">받는 분 성명</label>
+      <input id="coName" required placeholder="홍길동">
+      <label for="coAddr">배송 주소</label>
+      <input id="coAddr" required placeholder="서울시 크로이던구 셀허스트로 45">
+      <label for="coPay">결제 수단</label>
+      <select id="coPay">
+        <option>이글 페이 (데모)</option>
+        <option>레드 카드 (데모)</option>
+        <option>블루 카드 (데모)</option>
+      </select>
+      <button class="btn btn-red checkout" type="submit" style="width:100%;margin-top:18px">데모 결제 완료</button>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="orderDone">
+  <div class="modal-box" style="text-align:center">
+    <h3 style="color:var(--gold)">주문 완료!</h3>
+    <p style="margin-top:10px">자하의 이글이 곧 여러분의 거실로 날아갑니다. (데모)</p>
+    <button class="btn btn-gold" style="margin-top:16px" onclick="document.getElementById('orderDone').classList.remove('open')">확인</button>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/shop.js"></script>
+</body>
+</html>
